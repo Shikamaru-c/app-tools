@@ -20,7 +20,7 @@ export default {
     return {
       hotTools: [],
       historyTools: [],
-      user: true
+      user: false
     }
   },
   methods: {
@@ -32,7 +32,8 @@ export default {
       .then(tools => {
         this.hotTools = tools
       })
-    if (this.user) {
+    
+    if (!this.user) {
       this.historyTools = getLocalStorageTools.apply(this)
     } else {
       getHistoryTools.apply(this)
