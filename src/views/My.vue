@@ -46,13 +46,13 @@ export default {
       }
     }
     .user-options {
-      margin-top: 20px;
+      margin-top: 30px;
       div {
+        padding-left: 10px;
+        margin-bottom: 10px;
         line-height: 40px;
+        border-radius: 3px;
         background: #f0f0f0;
-        &:not(:last-child) {
-          border-bottom: 1px solid;
-        }
       }
     }
   }
