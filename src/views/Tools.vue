@@ -1,0 +1,33 @@
+<template>
+  <div>
+    <h1>ALL TOOLS</h1>
+    <tool-list :tools="allTools"></tool-list>
+  </div>
+</template>
+
+<script>
+/* Import APIs */
+import getAllTools from '@/apis/getAllTools'
+/* Import Component */
+import ToolList from '@/components/ToolList'
+
+export default {
+  data () {
+    return {
+      allTools: []
+    }
+  },
+  methods: {
+  },
+  mounted () {
+    console.log(222)
+    getAllTools.apply(this)
+      .then(tools => {
+        this.allTools = tools
+      })
+  },
+  components: {
+    ToolList
+  }
+}
+</script>
