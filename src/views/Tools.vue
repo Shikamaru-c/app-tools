@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>ALL TOOLS</h1>
     <tool-list :tools="allTools"></tool-list>
   </div>
 </template>

@@ -1,5 +1,9 @@
 <template>
-  <div class="tool-item" @click="handleClickItem">{{ tool.name }}</div>
+  <div>
+    <div class="tool-item-wrapper" @click="handleClickItem">
+      {{ tool.name }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,12 +26,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .tool-item {
-    height: 60px;
-    width: 60px;
-    margin: 5px;
-    text-align: center;
-    line-height: 60px;
+  .tool-item-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     border: 1px solid;
     border-radius: 3px;
   }

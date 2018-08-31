@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>HISTORY TOOLS</h1>
+    <section-title>HISTORY TOOLS</section-title>
     <tool-list :tools="historyTools"></tool-list>
-    <h1>HOT TOOLS</h1>
+    <section-title>HOT TOOLS</section-title>
     <tool-list :tools="hotTools"></tool-list>
   </div>
 </template>
@@ -14,6 +14,7 @@ import getLocalStorageTools from '@/apis/getLocalStorageTools'
 import getHistoryTools from '@/apis/getHistoryTools'
 /* Import Components */
 import ToolList from '@/components/ToolList'
+import SectionTitle from '@/components/SectionTitle'
 
 export default {
   data () {
@@ -32,7 +33,7 @@ export default {
       .then(tools => {
         this.hotTools = tools
       })
-    
+
     if (!this.user) {
       this.historyTools = getLocalStorageTools.apply(this)
     } else {
@@ -43,7 +44,8 @@ export default {
     }
   },
   components: {
-    ToolList
+    ToolList,
+    SectionTitle
   }
 }
 </script>

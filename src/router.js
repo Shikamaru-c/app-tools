@@ -8,6 +8,10 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/home',
       name: 'home',
       // route level code-splitting
@@ -19,6 +23,10 @@ export default new Router({
       path: '/tools',
       name: 'tools',
       component: () => import(/* webpackChunkName: "tools" */ '@/views/Tools.vue')
+    },
+    {
+      path: '/tools/:toolname',
+      component: () => import('@/views/ToolBox.vue')
     },
     {
       path: '/my',
