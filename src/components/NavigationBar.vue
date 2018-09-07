@@ -1,8 +1,8 @@
 <template>
   <div class="navigation-bar">
-    <router-link to="/home" tag="div"><a>TEST1</a></router-link>
-    <router-link to="/tools" tag="div"><a>TEST2</a></router-link>
-    <router-link to="/my" tag="div"><a>TEST3</a></router-link>
+    <router-link to="/home" tag="div"><a>首页</a></router-link>
+    <router-link to="/tools" tag="div"><a>工具集</a></router-link>
+    <router-link to="/my" tag="div"><a>设置</a></router-link>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     div {
       flex: 1;
       a {
+        font-size: 9px;
         color: #000;
         text-decoration: none;
       }

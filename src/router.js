@@ -25,13 +25,23 @@ export default new Router({
       component: () => import(/* webpackChunkName: "tools" */ '@/views/Tools.vue')
     },
     {
-      path: '/tools/:toolname',
-      component: () => import('@/views/ToolBox.vue')
-    },
-    {
       path: '/my',
       name: 'my',
       component: () => import(/* webpackChunkName: "my" */ '@/views/My.vue')
+    },
+    {
+      path: '/tool',
+      component: () => import('@/views/ToolBox.vue'),
+      meta: {
+        hideNavBar: true,
+        slideType: 'topToBottom'
+      },
+      children: [
+        {
+          path: ':toolname',
+          component: () => import(`@/tools/base64/base64.vue`)
+        }
+      ]
     }
   ]
 })

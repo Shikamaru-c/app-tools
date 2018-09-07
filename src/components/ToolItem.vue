@@ -20,6 +20,7 @@ export default {
   methods: {
     handleClickItem () {
       setLocalStorageTool(this.tool)
+      this.$router.push(`/tool/${this.tool.name}`)
     }
   }
 }
