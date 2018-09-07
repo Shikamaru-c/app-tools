@@ -1,9 +1,9 @@
 <template>
   <div class="tool-box">
-    <h1>{{ $route.params.toolname }}</h1>
-    <transition name="fade">
+    <h1>{{ $route.name }}</h1>
+    <!-- <transition name="fade"> -->
       <router-view class="tool-box-inner"></router-view>
-    </transition>
+    <!-- </transition> -->
   </div>
 </template>
 

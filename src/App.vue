@@ -20,7 +20,11 @@ export default {
       return this.$route.matched.some(m => m.meta.hideNavBar)
     },
     slideType () {
-      return this.$route.matched.some(m => m.meta.slideType === 'topToBottom') ? 'topToBottom' : 'rightToLeft'
+      let slideType
+      this.$route.matched.forEach(m => {
+        if (m.meta.slideType) slideType = m.meta.slideType
+      })
+      return slideType || 'rightToLeft'
     }
   },
   components: {

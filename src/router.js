@@ -27,21 +27,69 @@ export default new Router({
     {
       path: '/my',
       name: 'my',
-      component: () => import(/* webpackChunkName: "my" */ '@/views/My.vue')
+      component: () => import(/* webpackChunkName: "my" */ '@/views/my/My.vue')
+    },
+    {
+      path: '/my/suggest',
+      name: 'suggest',
+      component: () => import(/* webpackChunkName: "suggest" */ '@/views/my/Suggest.vue'),
+      meta: {
+        hideNavBar: true
+      }
+    },
+    {
+      path: '/my/about',
+      name: 'about',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/my/About.vue'),
+      meta: {
+        hideNavBar: true
+      }
     },
     {
       path: '/tool',
-      component: () => import('@/views/ToolBox.vue'),
+      component: () => import(/* webpackChunkName: "toolbox" */ '@/views/ToolBox.vue'),
+      /* 如果路由是 /tool，会命中 path: '/tool'，但是没有任何内容，这种情况下直接导向 404 page */
+      redirect: { name: '404page' },
       meta: {
         hideNavBar: true,
         slideType: 'topToBottom'
       },
       children: [
         {
-          path: ':toolname',
-          component: () => import(`@/tools/base64/base64.vue`)
+          path: 'base64',
+          name: 'base64',
+          component: () => import('@/tools/base64/base64.vue')
         }
       ]
+    },
+    {
+      path: '/user',
+      component: () => import('@/views/user/User.vue'),
+      redirect: { name: '404page' },
+      meta: {
+        hideNavBar: true
+      },
+      children: [
+        {
+          path: 'login',
+          name: '登陆',
+          component: () => import('@/views/user/Login.vue')
+        },
+        {
+          path: 'signin',
+          name: '注册',
+          component: () => import('@/views/user/Signin.vue')
+        }
+      ]
+    },
+    {
+      path: '*',
+      name: '404page',
+      component: () => import(/* webpackChunkName: "page404" */ '@/views/Page404.vue'),
+      meta: {
+        hideNavBar: true,
+        slideType: 'null'
+      }
     }
   ]
 })

@@ -17,10 +17,20 @@ export default {
       default: () => ({})
     }
   },
+  data () {
+    return {
+      baseUrl: '/'
+    }
+  },
   methods: {
     handleClickItem () {
       setLocalStorageTool(this.tool)
+      this.addToolUsageCount()
       this.$router.push(`/tool/${this.tool.name}`)
+    },
+    addToolUsageCount () {
+      const img = new Image()
+      img.src = `${this.baseUrl}?tool=${this.tool.name}`
     }
   }
 }

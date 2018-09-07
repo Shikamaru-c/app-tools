@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section-title>HISTORY TOOLS</section-title>
+    <section-title v-show="historyTools.length">HISTORY TOOLS</section-title>
     <tool-list :tools="historyTools"></tool-list>
-    <section-title>HOT TOOLS</section-title>
+    <section-title v-show="hotTools.length">HOT TOOLS</section-title>
     <tool-list :tools="hotTools"></tool-list>
   </div>
 </template>
@@ -28,7 +28,6 @@ export default {
 
   },
   created () {
-    console.log(111)
     getHotTools.apply(this)
       .then(tools => {
         this.hotTools = tools
