@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <transition :name="slideType" mode="out-in">
-    <!-- <keep-alive> -->
-      <router-view></router-view>
-    <!-- </keep-alive> -->
+    <keep-alive>
+      <!-- HACK -->
+      <router-view :key="$route.name + new Date()"></router-view>
+    </keep-alive>
     </transition>
     <transition name="hide-nav-bar">
       <navigation-bar class="navigation-bar" v-show="!hideNavBar"></navigation-bar>
